@@ -1,0 +1,20 @@
+# Ignore Jupyter Notebook backup files
+.ipynb_checkpoints/
+
+# Ignore temporary files
+*~
+.~*
+*.swp
+*.tmp
+*.twbr
+
+# Ignore OS or IDE-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore environment files
+.env
