@@ -57,14 +57,14 @@ The table below compares the performance of four models. While XGBoost achieved 
 Logistic Regression achieved the best balance of recall and F1-score, making it the most reliable model for identifying employees who are likely to churn.  
 ## Recommendations
 HR teams can use the predictive model as a risk-flagging system, in conjunction with the Tableau dashboard, to monitor high-risk segments and take targeted actions before attrition occurs. According to the correlation analysis, I suggest HR to focus on the following 5 points:  
-1. Monitor Overtime Patterns
+1. Monitor Overtime Patterns  
 Excessive overtime is a strong churn indicator. HR should track and manage employee workloads, ensuring a healthy work-life balance. Consider policies to reduce mandatory overtime or provide compensation and support for high-demand periods.
-2. Support Early-career Employees
+2. Support Early-career Employees  
 Lower-level employees are more likely to leave. This suggests the need for clearer growth paths, onboarding support, and mentorship programs to engage and retain junior staff.
-3. Invest in Internal Mobility
+3. Invest in Internal Mobility  
 Short tenure in current roles often leads to churn. Encouraging job rotation or internal promotions may help employees feel more challenged and valued.
-4. Strengthen Manager-employee Relations
-Employees with limited time under a current manager are more likely to churn. HR can invest in leadership training and onboarding programs for managers to help build trust and rapport early on.
+4. Strengthen Manager-employee Relations  
+Employees with limited time under a current manager are more likely to churn. HR can invest in leadership training and onboarding programs for managers to help build trust and rapport early on.  
 5. Review Compensation Strategy
 Lower salary is associated with higher attrition. Benchmarking compensation against industry standards and ensuring fairness can help retain valuable talent—especially in competitive roles.
 ## Source Datasets Description
