@@ -1,5 +1,4 @@
 # Employee Churn Predictive Analytics Writeup
-## Project Overview
 I built a data-driven solution that empowers HR teams to proactively flag and retain at-risk employees. Combining Python-based predictive modeling with a dynamic Tableau dashboard, this project identifies key churn drivers and enables timely, targeted intervention.
 ## Project Objectives
 - Clean and process HR data to enable meaningful churn analysis and predictive modeling
@@ -54,21 +53,23 @@ The table below compares the performance of four models. While XGBoost achieved 
 | Random Forest       | 0.84     | 0.72              | 0.17           | 0.27             |
 | XGBoost             | 0.85     | 0.62              | 0.31           | 0.41             |
 | Decision Tree       | 0.79     | 0.37              | 0.31           | 0.34             |
+
 Logistic Regression achieved the best balance of recall and F1-score, making it the most reliable model for identifying employees who are likely to churn.  
 ## Recommendations
 HR teams can use the predictive model as a risk-flagging system, in conjunction with the Tableau dashboard, to monitor high-risk segments and take targeted actions before attrition occurs. According to the correlation analysis, I suggest HR to focus on the following 5 points:  
-**1. Monitor Overtime Patterns**  
+1. Monitor Overtime Patterns
 Excessive overtime is a strong churn indicator. HR should track and manage employee workloads, ensuring a healthy work-life balance. Consider policies to reduce mandatory overtime or provide compensation and support for high-demand periods.
-**2. Support Early-career Employees**  
+2. Support Early-career Employees
 Lower-level employees are more likely to leave. This suggests the need for clearer growth paths, onboarding support, and mentorship programs to engage and retain junior staff.
-**3. Invest in Internal Mobility**  
+3. Invest in Internal Mobility
 Short tenure in current roles often leads to churn. Encouraging job rotation or internal promotions may help employees feel more challenged and valued.
-**4. Strengthen Manager-employee Relations**  
+4. Strengthen Manager-employee Relations
 Employees with limited time under a current manager are more likely to churn. HR can invest in leadership training and onboarding programs for managers to help build trust and rapport early on.
-**5. Review Compensation Strategy**  
+5. Review Compensation Strategy
 Lower salary is associated with higher attrition. Benchmarking compensation against industry standards and ensuring fairness can help retain valuable talent—especially in competitive roles.
 ## Source Datasets Description
 The employee_info dataset is a cross-sectional table containing 1480 employee’s data and 37 features including age, attrition, department, satisfaction, etc.. To simulate the imperfections of real-world business data, I intentionally introduced random null values to reflect common data quality issues encountered in practice.  
+
 Key features at a glance:
 | Column Name              | Description                                               |
 |--------------------------|-----------------------------------------------------------|
@@ -86,8 +87,11 @@ Key features at a glance:
 ## Data Preparation
 ### 1. Data Cleaning
 To ensure reliable analysis, I began data cleaning by removing irrelevant or redundant features. For example, columns with only one unique value (e.g., "Over18" which contains only "Y"), and salary-related columns such as 'DailyRate', 'HourlyRate', 'MonthlyRate', and 'MonthlyIncome' were excluded in favor of a consolidated "SalarySlab" feature. This helped reduce noise and multicollinearity.  
+
 I addressed data duplication by removing identical records to maintain dataset integrity.  
+
 For missing values, I assessed their frequency and importance. Since fewer than 5% of the rows had missing data, and each affected column had only one null, I considered dropping them. However, to retain more information—recognizing HR might prefer not to lose any data—I opted to impute values using statistical measures (mean, median, or mode), depending on the skewness of each column.  
+
 Finally, I verified the consistency of categorical variables to avoid issues during encoding or grouping. I checked for inconsistencies in formatting (e.g., "Yes" vs "yes") and confirmed that the dataset contained no such discrepancies.
 ### 2. Data Processing
 To prepare the data for machine learning, I converted all features into numeric format. I applied ordinal encoding for ranked features like salary level, binary encoding for yes/no fields like “OverTime”, and one-hot encoding for nominal categories to avoid multicollinearity. This ensured compatibility with scikit-learn models while preserving interpretability.
