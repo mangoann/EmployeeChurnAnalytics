@@ -52,7 +52,7 @@ The top five coefficients are:
 3. EducationField
 4. OverTime
 5. MaritalStatus
-![coefficients](coefficients.jpg)
+![coefficient](coefficient.jpg)
 ## Predictive Analysis
 To support proactive retention, I enabled early risk detection by developing a classification model that identifies high-risk employees with 98% recall. 
 The table below compares the performance of four models. 
