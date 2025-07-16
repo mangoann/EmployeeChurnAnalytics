@@ -36,14 +36,23 @@ Employees aged 26 to 35 account for the highest number of churn cases, which ali
 Overall, employees who left the company reported lower job satisfaction compared to those who stayed. Notably, job satisfaction among HR employees is significantly below the company average.
 ### 5. Performance Rating by Churn
 It’s important to monitor whether the company is losing top performers. To address this, I included a pivot table showing the average performance rating by department and attrition status. Departments where the average rating of employees who left is higher than those who stayed are highlighted. Currently, the R&D department stands out as losing higher-performing talent.
-## Correlation Analysis
-To identify key drivers of voluntary turnover, I conducted a correlation analysis. The top five contributing factors to employee churn are:  
+## Exploratory Data Analysis
+For early exploratory data analysis,  I conducted a correlation analysis to see what attributes affect churn. The top The top five attributes are:  
 1.	OverTime – Employees working overtime are more likely to leave.
 2.	Job Level – Lower-level employees tend to churn more.
 3.	Years in Current Role – Shorter tenure in the current role correlates with higher churn.
 4.	Years with Current Manager – Less time with a current manager increases the likelihood of leaving.
 5.	Salary Slab – Lower salary bands are associated with higher turnover.
 ![correlation](correlation.jpg)
+## Key Predicting Coefficients
+Logistic regression coefficients are more reliable for understanding true feature importance. 
+The top five coefficients are:
+1. JobRole
+2. BusinessTravel
+3. EducationField
+4. OverTime
+5. MaritalStatus
+![coefficients](coefficients.jpg)
 ## Predictive Analysis
 To support proactive retention, I enabled early risk detection by developing a classification model that identifies high-risk employees with 98% recall. 
 The table below compares the performance of four models. 
