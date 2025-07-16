@@ -45,27 +45,31 @@ To identify key drivers of voluntary turnover, I conducted a correlation analysi
 5.	Salary Slab – Lower salary bands are associated with higher turnover.
 ![correlation](correlation.jpg)
 ## Predictive Analysis
-To support proactive retention, I enabled early risk detection by developing a logistic regression model that identifies high-risk employees with 69% recall. This model outperformed Random Forest, XGBoost, and Decision Tree in recall and F1-score for predicting employee attrition.  
-The table below compares the performance of four models. While XGBoost achieved the highest overall accuracy, accuracy alone is not a reliable metric in this context due to class imbalance—most employees stayed, so predicting “Stay” across the board could still yield high accuracy. Instead, I prioritized the recall score to ensure the model effectively identifies those who actually left. A slightly lower precision is acceptable in this case, as false positives serve as early warnings, allowing HR to monitor and intervene before potential attrition occurs.
-| Model               | Accuracy | Precision (Leave) | Recall (Leave) | F1-score (Leave) |
-|---------------------|----------|-------------------|----------------|------------------|
-| Logistic Regression | 0.74     | 0.37              | 0.69           | 0.48             |
-| Random Forest       | 0.84     | 0.72              | 0.17           | 0.27             |
-| XGBoost             | 0.85     | 0.62              | 0.31           | 0.41             |
-| Decision Tree       | 0.79     | 0.37              | 0.31           | 0.34             |
+To support proactive retention, I enabled early risk detection by developing a classification model that identifies high-risk employees with 98% recall. 
+The table below compares the performance of four models. 
+| Model               | Accuracy | Precision (Stay) | Precision (Leave) | Recall (Stay) | Recall (Leave) | F1-score (Leave) |
+|---------------------|----------|------------------|----------------|-------------------|----------------|------------------|
+| Logistic Regression | 0.85     | 0.65             | 0.87           | 0.29              | 0.97           | 0.91             |
+| Random Forest       | 0.85     | 0.80             | 0.85           | 0.16              | 0.99           | 0.91             |
+| XGBoost             | 0.86     | 0.73             | 0.87           | 0.31              | 0.98           | 0.92             |
+| Gradient Boosting   | 0.86      | 0.75              | 0.87            | 0.31               | 0.98            | 0.92              |
 
-Logistic Regression achieved the best balance of recall and F1-score, making it the most reliable model for identifying employees who are likely to churn.  
+XGBoost achieved the best performance of identifing leavers without the less false alarm, making it the most reliable model for identifying employees who are likely to churn.  
 ## Recommendations
 HR teams can use the predictive model as a risk-flagging system, in conjunction with the Tableau dashboard, to monitor high-risk segments and take targeted actions before attrition occurs. According to the correlation analysis, I suggest HR to focus on the following 5 points:  
 1. Monitor Overtime Patterns  
 Excessive overtime is a strong churn indicator. HR should track and manage employee workloads, ensuring a healthy work-life balance. Consider policies to reduce mandatory overtime or provide compensation and support for high-demand periods.
+
 2. Support Early-career Employees  
 Lower-level employees are more likely to leave. This suggests the need for clearer growth paths, onboarding support, and mentorship programs to engage and retain junior staff.
+
 3. Invest in Internal Mobility  
 Short tenure in current roles often leads to churn. Encouraging job rotation or internal promotions may help employees feel more challenged and valued.
+
 4. Strengthen Manager-employee Relations  
 Employees with limited time under a current manager are more likely to churn. HR can invest in leadership training and onboarding programs for managers to help build trust and rapport early on.  
-5. Review Compensation Strategy
+
+5. Review Compensation Strategy  
 Lower salary is associated with higher attrition. Benchmarking compensation against industry standards and ensuring fairness can help retain valuable talent—especially in competitive roles.
 ## Source Datasets Description
 The employee_info dataset is a cross-sectional table containing 1480 employee’s data and 37 features including age, attrition, department, satisfaction, etc.. To simulate the imperfections of real-world business data, I intentionally introduced random null values to reflect common data quality issues encountered in practice.  
